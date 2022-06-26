@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  max-width: 80%;
+  margin-inline: auto;
+}
+
+a {
+  color: #121212;
+  text-decoration: none;
+}
+
+h3 {
+  line-height: 1.5;
+}
