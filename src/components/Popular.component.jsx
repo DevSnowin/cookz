@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import useWindowSize from "../hooks/useWindowSize.hook";
 
 const Popular = () => {
   const [popular, setPopular] = useState([]);
+  const windowSize = useWindowSize();
 
   useEffect(() => {
     getPopularRecipe();
@@ -34,11 +36,11 @@ const Popular = () => {
       <h3>Trending</h3>
       <Splide
         options={{
-          perPage: 4,
+          perPage: windowSize.width <= 920 ? 2 : 4,
           arrows: false,
           pagination: false,
           drag: "free",
-          gap: "2rem",
+          gap: windowSize.width <= 1120 ? "1rem" : "2rem",
         }}
       >
         {popular ? (
@@ -70,6 +72,10 @@ const RecipeCard = styled.div`
   border-radius: 20px;
   position: relative;
   margin-block: 2rem;
+
+  @media (max-width: 920px) {
+    min-height: 15rem;
+  }
 
   img {
     width: 100%;

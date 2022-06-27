@@ -13,6 +13,7 @@ html {
 body {
   max-width: 80%;
   margin-inline: auto;
+  overflow-x: hidden;
 }
 
 a {

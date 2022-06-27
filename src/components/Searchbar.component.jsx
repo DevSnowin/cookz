@@ -14,7 +14,11 @@ const Searchbar = () => {
 
   return (
     <SearchbarCon onSubmit={handleSubmit}>
-      <SearchInput type='text' ref={searchRef} />
+      <SearchInput
+        type='text'
+        ref={searchRef}
+        placeholder='Search recipes.....'
+      />
       <SearchIcon />
     </SearchbarCon>
   );

@@ -11,7 +11,7 @@ const Food = () => {
     const data = await fetch(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${
         import.meta.env.VITE_RECIPE_API
-      }&query=${query}`,
+      }&query=${query}&number=50`,
     );
 
     const recipes = await data.json();

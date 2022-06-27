@@ -8,7 +8,7 @@ import Categories from "../components/Categories.component";
 
 const Header = () => {
   return (
-    <div className=''>
+    <div id='header'>
       <Logo to='/'>
         <GiCampCookingPot size={34} />
         <h1>Cookz</h1>

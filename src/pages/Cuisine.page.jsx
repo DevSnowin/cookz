@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -10,7 +11,7 @@ const Cuisine = () => {
     const data = await fetch(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${
         import.meta.env.VITE_RECIPE_API
-      }&cuisine=${name}`,
+      }&cuisine=${name}&number=100`,
     );
 
     const recipes = await data.json();
@@ -22,7 +23,12 @@ const Cuisine = () => {
   }, [param.type]);
 
   return (
-    <CuisineWrapper>
+    <CuisineWrapper
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       {cuisine ? (
         cuisine.map((recipe) => (
           <CuisineCard key={recipe.id} to={`/recipe/${recipe.id}`}>
@@ -37,7 +43,7 @@ const Cuisine = () => {
   );
 };
 
-const CuisineWrapper = styled.div`
+const CuisineWrapper = styled(motion.div)`
   margin-block: 4rem;
   border-radius: 20px;
   overflow: hidden;

@@ -1,0 +1,37 @@
+{
+  "short_name": "Cookz",
+  "name": "Cookz: Recipe book for foodie",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/assets/saute-24.png",
+      "type": "image/png",
+      "sizes": "24x24"
+    },
+    {
+      "src": "/assets/saute-64.png",
+      "type": "image/png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "/assets/saute-128.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "/assets/saute-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#fff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#121212",
+  "description": "Recipe book for foodie. Learn to cook!"
+}

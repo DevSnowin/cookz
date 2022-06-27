@@ -5,24 +5,27 @@ import { GiNoodles } from "react-icons/gi";
 import { GiWheat } from "react-icons/gi";
 import { FaHamburger } from "react-icons/fa";
 import { FaPizzaSlice } from "react-icons/fa";
+import useWindowSize from "../hooks/useWindowSize.hook";
 
 const Categories = () => {
+  const windowSize = useWindowSize();
+
   return (
     <CategoriesWrapper>
       <Category to='cuisine/thai'>
-        <GiNoodles size={26} />
+        <GiNoodles size={windowSize.width <= 600 ? 20 : 26} />
         <p>Thai</p>
       </Category>
       <Category to='cuisine/american'>
-        <FaHamburger size={26} />
+        <FaHamburger size={windowSize.width <= 600 ? 20 : 26} />
         <p>American</p>
       </Category>
       <Category to='cuisine/indian'>
-        <GiWheat size={26} />
+        <GiWheat size={windowSize.width <= 600 ? 20 : 26} />
         <p>Indian</p>
       </Category>
       <Category to='cuisine/italian'>
-        <FaPizzaSlice size={26} />
+        <FaPizzaSlice size={windowSize.width <= 600 ? 20 : 26} />
         <p>Italian</p>
       </Category>
     </CategoriesWrapper>
@@ -35,6 +38,10 @@ const CategoriesWrapper = styled.div`
   align-items: center;
   gap: 2rem;
   margin-block: 2rem;
+
+  @media (max-width: 600px) {
+    gap: 1rem;
+  }
 `;
 const Category = styled(NavLink)`
   cursor: pointer;
@@ -50,6 +57,11 @@ const Category = styled(NavLink)`
 
   &.active {
     border: 3px solid #121212;
+  }
+
+  @media (max-width: 600px) {
+    width: 80px;
+    height: 80px;
   }
 
   p {

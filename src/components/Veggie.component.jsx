@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import useWindowSize from "../hooks/useWindowSize.hook";
 
 const Veggie = () => {
   const [veggie, setVeggie] = useState([]);
+
+  const windowSize = useWindowSize();
 
   useEffect(() => {
     getVeggie();
@@ -34,11 +37,11 @@ const Veggie = () => {
       <h3>Vegetarian</h3>
       <Splide
         options={{
-          perPage: 3,
+          perPage: windowSize.width <= 680 ? 1 : 3,
           arrows: false,
           pagination: false,
           drag: "free",
-          gap: "2rem",
+          gap: windowSize.width <= 1120 ? "1rem" : "2rem",
         }}
       >
         {veggie ? (
